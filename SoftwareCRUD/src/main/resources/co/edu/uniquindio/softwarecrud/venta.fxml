@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/27"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.softwarecrud.controller.VentaController"
+            styleClass="main-container">
+
+    <left>
+        <VBox prefWidth="230" spacing="25" styleClass="sidebar">
+
+            <VBox spacing="5">
+                <Label text="TICKET SYSTEM" styleClass="logo"/>
+                <Label text="Administración de eventos" styleClass="sidebar-subtitle"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <Button text="Dashboard"
+                        maxWidth="Infinity"
+                        styleClass="menu-button"
+                        onAction="#irADashboard"/>
+
+                <Button text="Gestionar eventos"
+                        maxWidth="Infinity"
+                        styleClass="menu-button"
+                        onAction="#irAEventos"/>
+
+                <Button text="Registrar ventas"
+                        maxWidth="Infinity"
+                        styleClass="menu-button-active"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="Sistema de gestión" styleClass="sidebar-footer"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="18" styleClass="content">
+
+            <VBox spacing="5">
+                <Label text="Gestión de ventas" styleClass="page-title"/>
+                <Label text="Registra clientes y realiza compras de boletos."
+                       styleClass="page-subtitle"/>
+            </VBox>
+
+            <HBox spacing="18" alignment="TOP_CENTER">
+
+                <VBox spacing="12" styleClass="stat-card" HBox.hgrow="ALWAYS">
+
+                    <Label text="Registrar cliente"
+                           styleClass="welcome-title"/>
+
+                    <Label text="Nombre completo"/>
+                    <TextField fx:id="txtNombreCliente"
+                               promptText="Nombre del cliente"/>
+
+                    <Label text="Documento"/>
+                    <TextField fx:id="txtDocumento"
+                               promptText="Número de documento"/>
+
+                    <Label text="Correo electrónico"/>
+                    <TextField fx:id="txtCorreo"
+                               promptText="correo@ejemplo.com"/>
+
+                    <Button text="Registrar cliente"
+                            maxWidth="Infinity"
+                            onAction="#registrarCliente"
+                            styleClass="secondary-button"/>
+
+                </VBox>
+
+                <VBox spacing="12" styleClass="stat-card" HBox.hgrow="ALWAYS">
+
+                    <Label text="Nueva venta"
+                           styleClass="welcome-title"/>
+
+                    <Label text="Cliente"/>
+                    <ComboBox fx:id="cmbCliente"
+                              promptText="Seleccionar cliente"
+                              maxWidth="Infinity"/>
+
+                    <Label text="Evento"/>
+                    <ComboBox fx:id="cmbEvento"
+                              promptText="Seleccionar evento"
+                              maxWidth="Infinity"/>
+
+                    <Label text="Cantidad de boletos"/>
+                    <TextField fx:id="txtCantidad"
+                               promptText="Ej. 2"/>
+
+                    <Label text="Usuario operador"/>
+                    <TextField fx:id="txtOperador"
+                               promptText="Nombre del operador"/>
+
+                    <Label text="Total de la compra"
+                           styleClass="stat-title"/>
+
+                    <Label fx:id="lblTotal"
+                           text="COP 0.00"
+                           styleClass="stat-number"/>
+
+                    <Button text="Calcular total"
+                            maxWidth="Infinity"
+                            onAction="#calcularTotal"
+                            styleClass="secondary-button"/>
+
+                    <Button text="Confirmar venta"
+                            maxWidth="Infinity"
+                            onAction="#registrarVenta"
+                            styleClass="primary-button"/>
+
+                </VBox>
+
+            </HBox>
+
+            <VBox spacing="12" styleClass="stat-card" VBox.vgrow="ALWAYS">
+
+                <Label text="Ventas realizadas"
+                       styleClass="welcome-title"/>
+
+                <TableView fx:id="tablaBoletos" VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="colCodigo"
+                                     text="Código"
+                                     prefWidth="125"/>
+
+                        <TableColumn fx:id="colCliente"
+                                     text="Cliente"
+                                     prefWidth="135"/>
+
+                        <TableColumn fx:id="colEvento"
+                                     text="Evento"
+                                     prefWidth="135"/>
+
+                        <TableColumn fx:id="colCantidad"
+                                     text="Cantidad"
+                                     prefWidth="75"/>
+
+                        <TableColumn fx:id="colTotal"
+                                     text="Total"
+                                     prefWidth="100"/>
+
+                        <TableColumn fx:id="colFecha"
+                                     text="Fecha de compra"
+                                     prefWidth="145"/>
+
+                        <TableColumn fx:id="colEstado"
+                                     text="Estado"
+                                     prefWidth="90"/>
+
+                    </columns>
+
+                    <placeholder>
+                        <Label text="Todavía no hay ventas registradas."/>
+                    </placeholder>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

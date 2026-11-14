@@ -1,0 +1,40 @@
+
+package co.edu.uniquindio.softwarecrud;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Launcher extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/co/edu/uniquindio/softwarecrud/dashboard.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root, 1100, 720);
+
+        scene.getStylesheets().add(
+                getClass().getResource("/css/estilos.css").toExternalForm()
+        );
+
+        stage.setTitle("CRUD BOLETERIA");
+
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}

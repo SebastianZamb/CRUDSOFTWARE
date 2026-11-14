@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.softwarecrud.controller.EventoController"
+            styleClass="main-container">
+
+    <left>
+        <VBox prefWidth="230" spacing="25" styleClass="sidebar">
+
+            <VBox spacing="5">
+                <Label text="TICKET SYSTEM" styleClass="logo"/>
+                <Label text="Administración de eventos" styleClass="sidebar-subtitle"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <Button text="Dashboard"
+                        maxWidth="Infinity"
+                        styleClass="menu-button"
+                        onAction="#irADashboard"/>
+
+                <Button text="Gestionar eventos"
+                        maxWidth="Infinity"
+                        styleClass="menu-button-active"/>
+
+                <Button text="Registrar ventas"
+                        maxWidth="Infinity"
+                        styleClass="menu-button"
+                        onAction="#irAVentas"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="Sistema de gestión" styleClass="sidebar-footer"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20" styleClass="content">
+
+            <VBox spacing="5">
+                <Label text="Gestión de eventos" styleClass="page-title"/>
+                <Label text="Registra, consulta y administra los eventos del sistema."
+                       styleClass="page-subtitle"/>
+            </VBox>
+
+            <VBox spacing="15" styleClass="stat-card">
+
+                <Label text="Información del evento"
+                       styleClass="welcome-title"/>
+
+                <GridPane hgap="15" vgap="12">
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+
+                    <Label text="Identificador"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="0"/>
+
+                    <TextField fx:id="txtId"
+                               promptText="Ej. EVT001"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="1"/>
+
+                    <Label text="Nombre del evento"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                    <TextField fx:id="txtNombre"
+                               promptText="Nombre del evento"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"/>
+
+                    <Label text="Fecha"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="2"/>
+
+                    <DatePicker fx:id="dpFecha"
+                                promptText="Seleccionar fecha"
+                                maxWidth="Infinity"
+                                GridPane.columnIndex="0"
+                                GridPane.rowIndex="3"/>
+
+                    <Label text="Lugar"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"/>
+
+                    <TextField fx:id="txtLugar"
+                               promptText="Lugar del evento"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="3"/>
+
+                    <Label text="Aforo total"
+                           GridPane.columnIndex="0"
+                           GridPane.rowIndex="4"/>
+
+                    <TextField fx:id="txtAforo"
+                               promptText="Cantidad de asistentes"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="5"/>
+
+                    <Label text="Precio del boleto"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="4"/>
+
+                    <TextField fx:id="txtPrecio"
+                               promptText="Precio en pesos"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="5"/>
+
+                </GridPane>
+
+                <HBox spacing="10">
+
+                    <Button text="Registrar"
+                            onAction="#registrarEvento"
+                            styleClass="primary-button"/>
+
+                    <Button text="Actualizar"
+                            onAction="#actualizarEvento"
+                            styleClass="secondary-button"/>
+
+                    <Button text="Limpiar"
+                            onAction="#limpiarCampos"
+                            styleClass="secondary-button"/>
+
+                </HBox>
+
+            </VBox>
+
+            <VBox spacing="12" styleClass="stat-card" VBox.vgrow="ALWAYS">
+
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Eventos registrados"
+                           styleClass="welcome-title"/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Button text="Cancelar evento"
+                            onAction="#cancelarEvento"
+                            styleClass="secondary-button"/>
+
+                    <Button text="Eliminar"
+                            onAction="#eliminarEvento"
+                            styleClass="danger-button"/>
+
+                </HBox>
+
+                <TableView fx:id="tablaEventos"
+                           VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="colId"
+                                     text="ID"
+                                     prefWidth="75"/>
+
+                        <TableColumn fx:id="colNombre"
+                                     text="Evento"
+                                     prefWidth="140"/>
+
+                        <TableColumn fx:id="colFecha"
+                                     text="Fecha"
+                                     prefWidth="100"/>
+
+                        <TableColumn fx:id="colLugar"
+                                     text="Lugar"
+                                     prefWidth="120"/>
+
+                        <TableColumn fx:id="colAforo"
+                                     text="Aforo"
+                                     prefWidth="70"/>
+
+                        <TableColumn fx:id="colVendidos"
+                                     text="Vendidos"
+                                     prefWidth="80"/>
+
+                        <TableColumn fx:id="colPrecio"
+                                     text="Precio"
+                                     prefWidth="90"/>
+
+                        <TableColumn fx:id="colEstado"
+                                     text="Estado"
+                                     prefWidth="100"/>
+
+                    </columns>
+
+                    <placeholder>
+                        <Label text="Todavía no hay eventos registrados."/>
+                    </placeholder>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

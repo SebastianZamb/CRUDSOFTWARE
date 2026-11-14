@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.softwarecrud.controller.DashboardController"
+            styleClass="main-container">
+
+    <left>
+        <VBox prefWidth="230" spacing="25" styleClass="sidebar">
+
+            <VBox spacing="5">
+                <Label text="TICKET SYSTEM" styleClass="logo"/>
+                <Label text="Administración de eventos" styleClass="sidebar-subtitle"/>
+            </VBox>
+
+            <VBox spacing="10">
+
+                <Button text="Dashboard"
+                        maxWidth="Infinity"
+                        styleClass="menu-button-active"/>
+
+                <Button text="Gestionar eventos"
+                        maxWidth="Infinity"
+                        styleClass="menu-button"
+                        onAction="#irAEventos"/>
+
+                <Button text="Registrar ventas"
+                        maxWidth="Infinity"
+                        styleClass="menu-button"
+                        onAction="#irAVentas"/>
+
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="Sistema de gestión"
+                   styleClass="sidebar-footer"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="25" styleClass="content">
+
+            <HBox alignment="CENTER_LEFT">
+                <VBox spacing="5">
+                    <Label text="Panel principal" styleClass="page-title"/>
+                    <Label text="Bienvenido al sistema de gestión de boletos"
+                           styleClass="page-subtitle"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="ADMINISTRADOR" styleClass="user-badge"/>
+            </HBox>
+
+            <GridPane hgap="18" vgap="18">
+
+                <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+                    <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+                </columnConstraints>
+
+                <VBox spacing="12" styleClass="stat-card"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
+
+                    <Label text="EVENTOS REGISTRADOS"
+                           styleClass="stat-title"/>
+
+                    <Label text="0" fx:id="lblTotalEventos"
+                           styleClass="stat-number"/>
+
+                    <Label text="Eventos en el sistema"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+                <VBox spacing="12" styleClass="stat-card"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+
+                    <Label text="BOLETOS VENDIDOS"
+                           styleClass="stat-title"/>
+
+                    <Label text="0" fx:id="lblBoletosVendidos"
+                           styleClass="stat-number"/>
+
+                    <Label text="Total de boletos vendidos"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+                <VBox spacing="12" styleClass="stat-card"
+                      GridPane.columnIndex="0" GridPane.rowIndex="1">
+
+                    <Label text="CLIENTES REGISTRADOS"
+                           styleClass="stat-title"/>
+
+                    <Label text="0" fx:id="lblTotalClientes"
+                           styleClass="stat-number"/>
+
+                    <Label text="Clientes registrados"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+                <VBox spacing="12" styleClass="stat-card"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1">
+
+                    <Label text="VENTAS REALIZADAS"
+                           styleClass="stat-title"/>
+
+                    <Label text="0" fx:id="lblTotalVentas"
+                           styleClass="stat-number"/>
+
+                    <Label text="Operaciones de venta"
+                           styleClass="stat-description"/>
+
+                </VBox>
+
+            </GridPane>
+
+            <VBox spacing="15" styleClass="welcome-card">
+
+                <Label text="Comienza a gestionar tu sistema"
+                       styleClass="welcome-title"/>
+
+                <Label text="Registra eventos, administra su disponibilidad y realiza ventas de boletos desde las diferentes secciones."
+                       wrapText="true"
+                       styleClass="welcome-description"/>
+
+                <HBox spacing="12">
+
+                    <Button text="Gestionar eventos"
+                            onAction="#irAEventos"
+                            styleClass="primary-button"/>
+
+                    <Button text="Registrar una venta"
+                            onAction="#irAVentas"
+                            styleClass="secondary-button"/>
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
